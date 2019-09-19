@@ -1,85 +1,130 @@
 #include <iostream>
 #include <cstdlib>
-using namespace std;
+#include <locale>
+#include <string>
 //The Magic 8-Ball
 
+
 int main() {
+  // Initializing vars for game restart
+  bool quit = false;
+  char quitAnswer, reset;
   
-  //User input
-  string question;
-  cout << "The Universe here. What do you want to know?\n";
-  cin >> question;
+  // Initializing game restart loop
+  while (!quit) {
+    // Setting flag var to empty
+    quitAnswer = reset;
+
+    //INTRO
+    std::cout <<    "                   _......._                   \n"
+                    "               .-::::::::::::-.                \n"
+                    "             .::::::::::::::::::.              \n"
+                    "            .:::::::' .-. `:::::::             \n"
+                    "           .:::::::  :   :  :::::::            \n"
+                    "           ::::::::  :   :  ::::::::           \n"
+                    "           :::::::::._`-'_.:::::::::           \n"
+                    "           :::::::::' .-. `:::::::::           \n"
+                    "           ::::::::  :   :  ::::::::           \n"
+                    "            :::::::  :   :  :::::::'           \n"
+                    "             :::::::._`-'_.:::::::'            \n"
+                    "              `::::::::::::::::::'             \n"
+                    "               `-:::::::::::::-'               \n"
+                    "                  `'''''''''`                  \n"
+  "------------------------------------------------\n"
+  "------------------------------------------------\n"
+  "I'm the Magic 🎱  Ball. What do you want to know?\n"
+  "------------------------------------------------\n"
+  "------------------------------------------------\n";
+
+  // User input
+  std::string question;
+  getline(std::cin, question);
+  std::cout << "\n";
   
   // Output
-  cout << "MAGIC 8-BALL: ";
+  std::cout << "MAGIC 🎱  BALL SAYS: ";
   
   // Randomizer
   srand(time(NULL));
   int answer = 1 + rand() % 20;
-  cout << answer << "\n";
   
-  // Answers
-  switch (answer) {
-    case 1:
-    	cout << "It is certain.\n";
-        break;
-    case 2:
-    	cout << "It is decidedly so.\n";
-        break;
-    case 3:
-    	cout << "Without a doubt.\n";
-        break;
-    case 4:
-    	cout << "Yes - definitely.\n";
-        break;
-    case 5:
-    	cout << "You may rely on it.\n";
-        break;
-    case 6:
-    	cout << "As I see it, yes.\n";
-        break;
-    case 7:
-    	cout << "Most likely.\n";
-        break;
-    case 8:
-    	cout << "Outlook is good.\n";
-        break;
-    case 9:
-    	cout << "Yes.\n";
-        break;
-    case 10:
-    	cout << "Signs point to yes.\n";
-        break;
-    case 11:
-    	cout << "Reply hazy, try again.\n";
-        break;
-    case 12:
-    	cout << "Ask again later.\n";
-        break;
-    case 13:
-    	cout << "Better not tell you now.\n";
-        break;
-    case 14:
-    	cout << "Cannot predict now.\n";
-        break;
-    case 15:
-    	cout << "Concentrate and ask again.\n";
-        break;
-    case 16:
-    	cout << "Don't count on it.\n";
-        break;
-    case 17:
-    	cout << "My reply is no.\n";
-        break;
-    case 18:
-    	cout << "My sources say no.\n";
-        break;
-    case 19:
-    	cout << "Outlook not so good.\n";
-        break;
-    case 20:
-    	cout << "Very doubtful.\n";
-        break;
-  }
+    // Answers
+    switch (answer) {
+      case 1:
+        std::cout << "It is certain.\n";
+          break;
+      case 2:
+        std::cout << "It is decidedly so.\n";
+          break;
+      case 3:
+        std::cout << "Without a doubt.\n";
+          break;
+      case 4:
+        std::cout << "Yes - definitely.\n";
+          break;
+      case 5:
+        std::cout << "You may rely on it.\n";
+          break;
+      case 6:
+        std::cout << "As I see it, yes.\n";
+          break;
+      case 7:
+        std::cout << "Most likely.\n";
+          break;
+      case 8:
+        std::cout << "Outlook is good.\n";
+          break;
+      case 9:
+        std::cout << "Yes.\n";
+          break;
+      case 10:
+        std::cout << "Signs point to yes.\n";
+          break;
+      case 11:
+        std::cout << "Reply hazy, try again.\n";
+          break;
+      case 12:
+        std::cout << "Ask again later.\n";
+          break;
+      case 13:
+        std::cout << "Better not tell you now.\n";
+          break;
+      case 14:
+        std::cout << "Cannot predict now.\n";
+          break;
+      case 15:
+        std::cout << "Concentrate and ask again.\n";
+          break;
+      case 16:
+        std::cout << "Don't count on it.\n";
+          break;
+      case 17:
+        std::cout << "My reply is no.\n";
+          break;
+      case 18:
+        std::cout << "My sources say no.\n";
+          break;
+      case 19:
+        std::cout << "Outlook not so good.\n";
+          break;
+      case 20:
+        std::cout << "Very doubtful.\n";
+          break;
+      default:
+        std::cout << "This time, ask a PROPER question.\n";
+          break;
+    } // end switch
+
+    // Quit Y / N ?
+    if ( quitAnswer == 'Y' ) {
+      quit = true;
+    }
+  
+    std::cout << "------------------------------------------------\n"
+                 "Do you have any more questions? Y / N\n\n"; 
+    std::cin >> quitAnswer;
+    quitAnswer = std::toupper(quitAnswer);
+  } // end while
+
 return 0;
 } // end main();
