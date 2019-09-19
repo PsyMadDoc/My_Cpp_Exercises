@@ -11,11 +11,6 @@ int main() {
   bool quit = false;
   char quitAnswer, reset, question[150];
   
-  // INTRO
-  std::cout <<
-  "--------------------\n"
-  "Hello, I'm the Magic 🎱  Ball.\n";
-  
   //INTRO
   std::cout <<    "                   _......._                   \n"
                   "               .-::::::::::::-.                \n"
