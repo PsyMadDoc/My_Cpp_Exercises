@@ -19,7 +19,7 @@ int main() {
   cin >> year;
   
   if (0 > year || year > 9999) {
-    cout << "Invalid entry\n";
+    cout << "Invalid entry.\n";
   }
   
   if ( year % 4 == 0  && year % 100 != 0 || year % 400 == 0) {
