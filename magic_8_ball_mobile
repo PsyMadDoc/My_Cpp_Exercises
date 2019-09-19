@@ -1,0 +1,123 @@
+#include <iostream>
+#include <cstdlib>
+#include <locale>
+#include <string>
+#include <limits>
+//The Magic 8-Ball
+
+
+int main() {
+  // Initializing vars
+  bool quit = false;
+  char quitAnswer, reset, question[150];
+  
+  // INTRO
+  std::cout <<
+  "--------------------\n"
+  "Hello, I'm the Magic 🎱  Ball.\n";
+  
+  // Initializing game restart loop
+  while (quit == false) {
+    // Setting flag var to empty
+    quitAnswer = reset;
+
+    //INTRO
+    std::cout <<
+    "--------------------\n"
+    "What do you want to know?\n"
+    "--------------------\n";
+
+    // User input
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.getline(question, 150);
+    std::cout << "\n";
+
+    // Output
+    std::cout << "MAGIC 🎱  BALL SAYS: ";
+
+    // Randomizer
+    srand(time(NULL));
+    int answer = 1 + rand() % 20;
+  
+    // Answers
+    switch (answer) {
+      case 1:
+        std::cout << "It is certain.\n";
+          break;
+      case 2:
+        std::cout << "It is decidedly so.\n";
+          break;
+      case 3:
+        std::cout << "Without a doubt.\n";
+          break;
+      case 4:
+        std::cout << "Yes - definitely.\n";
+          break;
+      case 5:
+        std::cout << "You may rely on it.\n";
+          break;
+      case 6:
+        std::cout << "As I see it, yes.\n";
+          break;
+      case 7:
+        std::cout << "Most likely.\n";
+          break;
+      case 8:
+        std::cout << "Outlook is good.\n";
+          break;
+      case 9:
+        std::cout << "Yes.\n";
+          break;
+      case 10:
+        std::cout << "Signs point to yes.\n";
+          break;
+      case 11:
+        std::cout << "Reply hazy, try again.\n";
+          break;
+      case 12:
+        std::cout << "Ask again later.\n";
+          break;
+      case 13:
+        std::cout << "Better not tell you now.\n";
+          break;
+      case 14:
+        std::cout << "Cannot predict now.\n";
+          break;
+      case 15:
+        std::cout << "Concentrate and ask again.\n";
+          break;
+      case 16:
+        std::cout << "Don't count on it.\n";
+          break;
+      case 17:
+        std::cout << "My reply is no.\n";
+          break;
+      case 18:
+        std::cout << "My sources say no.\n";
+          break;
+      case 19:
+        std::cout << "Outlook not so good.\n";
+          break;
+      case 20:
+        std::cout << "Very doubtful.\n";
+          break;
+      default:
+        std::cout << "This time, ask a PROPER question.\n";
+          break;
+    } // end switch
+  
+    std::cout << "--------------------\n"
+                 "Do you have any more questions? Y / N\n\n"; 
+    std::cin >> quitAnswer;
+    quitAnswer = std::toupper(quitAnswer);
+    
+    // Any more questions Y / N ?
+    if ( quitAnswer == 'N' ) {
+      quit = true;
+    }
+    
+  } // end while
+
+return 0;
+} // end main();
