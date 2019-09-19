@@ -2,51 +2,65 @@
 #include <cstdlib>
 #include <locale>
 #include <string>
+#include <limits>
 //The Magic 8-Ball
 
 
 int main() {
-  // Initializing vars for game restart
+  // Initializing vars
   bool quit = false;
-  char quitAnswer, reset;
+  char quitAnswer, reset, question[150];
+  
+  // INTRO
+  std::cout <<
+  "--------------------\n"
+  "Hello, I'm the Magic 🎱  Ball.\n";
+  
+  //INTRO
+  std::cout <<    "                   _......._                   \n"
+                  "               .-::::::::::::-.                \n"
+                  "             .::::::::::::::::::.              \n"
+                  "            .:::::::' .-. `:::::::             \n"
+                  "           .:::::::  :   :  :::::::            \n"
+                  "           ::::::::  :   :  ::::::::           \n"
+                  "           :::::::::._`-'_.:::::::::           \n"
+                  "           :::::::::' .-. `:::::::::           \n"
+                  "           ::::::::  :   :  ::::::::           \n"
+                  "            :::::::  :   :  :::::::'           \n"
+                  "             :::::::._`-'_.:::::::'            \n"
+                  "              `::::::::::::::::::'             \n"
+                  "               `-:::::::::::::-'               \n"
+                  "                  `'''''''''`                  \n"
+  "------------------------------------------------\n"
+  "------------------------------------------------\n"
+  "---------Hello, I'm the Magic 🎱  Ball.---------\n";
+
   
   // Initializing game restart loop
-  while (!quit) {
+  while (quit == false) {
     // Setting flag var to empty
     quitAnswer = reset;
 
     //INTRO
-    std::cout <<    "                   _......._                   \n"
-                    "               .-::::::::::::-.                \n"
-                    "             .::::::::::::::::::.              \n"
-                    "            .:::::::' .-. `:::::::             \n"
-                    "           .:::::::  :   :  :::::::            \n"
-                    "           ::::::::  :   :  ::::::::           \n"
-                    "           :::::::::._`-'_.:::::::::           \n"
-                    "           :::::::::' .-. `:::::::::           \n"
-                    "           ::::::::  :   :  ::::::::           \n"
-                    "            :::::::  :   :  :::::::'           \n"
-                    "             :::::::._`-'_.:::::::'            \n"
-                    "              `::::::::::::::::::'             \n"
-                    "               `-:::::::::::::-'               \n"
-                    "                  `'''''''''`                  \n"
-  "------------------------------------------------\n"
-  "------------------------------------------------\n"
-  "I'm the Magic 🎱  Ball. What do you want to know?\n"
-  "------------------------------------------------\n"
-  "------------------------------------------------\n";
+    std::cout <<
+    "------------------------------------------------\n"
+    "------------------------------------------------\n"
+    "What do you want to know?\n"
+    "------------------------------------------------\n"
+    "------------------------------------------------\n";
 
-  // User input
-  std::string question;
-  getline(std::cin, question);
-  std::cout << "\n";
-  
-  // Output
-  std::cout << "MAGIC 🎱  BALL SAYS: ";
-  
-  // Randomizer
-  srand(time(NULL));
-  int answer = 1 + rand() % 20;
+    // User input
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.getline(question, 150);
+    std::cout << "\n";
+
+    // Output
+    std::cout << "MAGIC 🎱  BALL SAYS: ";
+
+    // Randomizer
+    srand(time(NULL));
+    int answer = 1 + rand() % 20;
   
     // Answers
     switch (answer) {
@@ -124,6 +138,7 @@ int main() {
     if ( quitAnswer == 'N' ) {
       quit = true;
     }
+    
   } // end while
 
 return 0;
