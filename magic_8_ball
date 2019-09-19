@@ -114,16 +114,16 @@ int main() {
         std::cout << "This time, ask a PROPER question.\n";
           break;
     } // end switch
-
-    // Quit Y / N ?
-    if ( quitAnswer == 'Y' ) {
-      quit = true;
-    }
   
     std::cout << "------------------------------------------------\n"
                  "Do you have any more questions? Y / N\n\n"; 
     std::cin >> quitAnswer;
     quitAnswer = std::toupper(quitAnswer);
+    
+    // Any more questions Y / N ?
+    if ( quitAnswer == 'N' ) {
+      quit = true;
+    }
   } // end while
 
 return 0;
