@@ -1,0 +1,193 @@
+/* Rock, Paper, Scissors, Lizard, Spock
+***************************************
+The logic:
+- Scissors cuts Paper.
+- Paper covers Rock.
+- Rock crushes Lizard.
+- Lizard poisons Spock.
+- Spock smashes Scissors.
+- Scissors decapitate Lizard.
+- Lizard eats Paper.
+- Paper disproves Spock.
+- Spock vaporizes Rock.
+- Rock crushes Scissors.
+ 
+✊ |  ✋ | ✌️  |  🦎 |  🖖 |
+1  |  2  |  3  |  4  |  5  |
+---|-----|-----|-----|-----|------
+D  |  W  |  L  |  L  |  W  |  1 ✊
+---|-----|-----|-----|-----|------
+L  |  D  |  W  |  W  |  L  |  2 ✋
+---|-----|-----|-----|-----|------
+W  |  L  |  D  |  L  |  W  |  3 ✌️
+---|-----|-----|-----|-----|------
+W  |  L  |  W  |  D  |  L  |  4 🦎
+---|-----|-----|-----|-----|------
+L  |  W  |  L  |  W  |  D  |  5 🖖
+---|-----|-----|-----|-----|------
+*/
+
+#include <iostream>
+#include <stdlib.h>
+#include <locale>
+#include <limits>
+#include <stdio.h>
+
+int main() {
+  
+  // Variables
+  int computer, user;
+  bool quit, aux;
+  char playAgain;
+  aux = false;
+  quit = false;
+
+  // INTRO
+  std::cout << 
+    "-------------------------------------\n"
+    "Rock, Paper, Scissors, Lizard, Spock!\n"
+    "-------------------------------------\n";
+	
+  // Replay loop
+  while (quit == false) {
+    // Reset flag
+    quit = aux;
+    
+    // Randomizer
+    srand(time(NULL));
+    computer = 1 + rand() % 3;
+    user = 0;
+
+    // Present options to user
+    std::cout << 
+      "\n"
+      "Enter your choice:\n"
+      "1. ✊\n"
+      "2. ✋\n"
+      "3. ✌️\n"
+      "4. 🦎\n"
+      "5. 🖖\n";
+
+    // Get input from user
+      std::cout << "Player's choice':  ";
+      std::cin >> user;
+
+    // Output computer's choice
+      std::cout << "Computer'choice':  " << computer << "\n\n";
+
+    // Functionality
+    switch(user) {
+
+      case 1: // ✊
+        if (computer == 1) { // ✊
+          std::cout << "It's a draw! 🙃 \n"; 
+          }
+        if (computer == 2) { // ✋
+          std::cout << "HAHA, you lose! 😎 \n"; 
+          } 
+        if (computer == 3) { // ✌️
+          std::cout << "You win, damn it! 🤮 🤮 🤮 \n"; 
+          }
+        if (computer == 4) { // 🦎
+          std::cout << "You win... *sigh*\n"; 
+          }
+        if (computer == 5) { // 🖖
+          std::cout << "LOOSER!! ͡🤡 \n"; 
+          }
+        break;
+
+      case 2: // ✋
+        if (computer == 1) { // ✊
+          std::cout << "I lost... 😢  Damn you... DAMN YOU! 😭 😭 😭 \n";
+          }
+        if (computer == 2) { // ✋
+          std::cout << "It's a draw. We're equals (but I'm better 😉 )\n"; 
+          }
+        if (computer == 3) { // ✌️
+          std::cout << "I win! You lose, HAHAHA!! 🤣 \n"; 
+          }
+        if (computer == 4) { // 🦎
+          std::cout << "Thy have been defeated, peasant. 🧐 \n"; 
+          }
+        if (computer == 5) { // 🖖
+          std::cout << "NOOOOOOOOOO!!!! Y U DO DIS?!  😑 \n"; 
+          }
+        break;
+
+      case 3: // ✌️
+        if (computer == 1) { // ✊
+          std::cout << "I won, of course! 😝  IN YOUR FACE!! 😝 \n"; 
+          }
+        if (computer == 2) { // ✋
+          std::cout << "You beat ME?!? OMG, stop winning!!!11!1 🤬 🤬 🤬 \n"; 
+          }
+        if (computer == 3) { // ✌️
+          std::cout << "Looks like we're evenly matched... for now! 😈 \n"; 
+          }
+        if (computer == 4) { // 🦎
+          std::cout << "Mommy!!!! This bad human is beating me!! 😫 😫 😫 \n"; 
+          }
+        if (computer == 5) { // 🖖
+          std::cout << "I WIN! I WIN! I WIN! YASSS ͡😍 \n"; 
+          }
+        break;
+
+      case 4: // 🦎
+        if (computer == 1) { // ✊
+          std::cout << "This'll teach ya, looser! Play with the bull, you get the horns. 🤠 \n"; 
+          }
+        if (computer == 2) { // ✋
+          std::cout << "....have you no mercy? 🥺 🥺 🥺 \n"; 
+          }
+        if (computer == 3) { // ✌️
+          std::cout << "IN. YO. FACE!!! 💪 💪 💪 \n"; 
+          }
+        if (computer == 4) { // 🦎
+          std::cout << "It's a draw. Bet you can't do any better 😝 \n"; 
+          }
+        if (computer == 5) { // 🖖
+          std::cout << "I'm so useless 😭  ...I might need therapy...\n"; 
+          }
+        break;
+
+      case 5: // 🖖
+        if (computer == 1) { // ✊
+          std::cout << "You just got lucky. I'll get you next time! 😡 \n"; 
+          }
+        if (computer == 2) { // ✋
+          std::cout << "You'd think you're inferior because you're human. Nope, it's because you're stupid. 😉 \n"; 
+          }
+        if (computer == 3) { // ✌️
+          std::cout << "YOU won!?! This game must be broken! *runs away to debug the code* \n"; 
+          }
+        if (computer == 4) { // 🦎
+          std::cout << "All hail the great ME!! 👑 👑 👑 \n"; 
+          }
+        if (computer == 5) { // 🖖
+          std::cout << "This round's result was just like Switzerland. Impartial. 🇨🇭 \n"; 
+          }
+        break;
+
+        default:
+          std::cout << "Not a valid input.\n";
+        break;
+    } // end switch
+    
+    // "Play again?"
+    std::cout << 
+    "\n"
+    "-----------------------\n"
+    "Wanna play again? Y / N\n";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    playAgain = std::getchar();
+    playAgain = std::toupper(playAgain);
+    
+    // Check "Play again?" answer
+    if (playAgain == 'N') {
+      quit = true;
+    }
+  } // end while
+  
+return 0;
+} // end main();
